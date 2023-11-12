@@ -64,7 +64,15 @@ function App() {
     const savedRows = JSON.parse(localStorage.getItem('rows') || '[]');
     const savedProgress = JSON.parse(localStorage.getItem('progress') || '0');
 
-    setRows(savedRows);
+    if (savedRows.length === 0) {
+      setRows([
+        createData('Math', 'Homework 3', '2020-09-10'),
+        createData('Reading', 'To Kill a Mocking Bird', '2020-05-21'),
+      ]);
+    } else {
+      setRows(savedRows);
+    }
+    
     setProgress(savedProgress);
   }, []); //useEffect which whenever refreshed you will getItems of the progess and rows then set them to the current state from the local storage 
 
