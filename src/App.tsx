@@ -9,7 +9,8 @@ import {
   Paper, 
   Checkbox, 
   LinearProgress,
-  Toolbar } from '@mui/material' 
+  Toolbar,
+  Button } from '@mui/material' 
 import { makeStyles } from '@mui/styles';
 
 interface Row {
@@ -48,6 +49,11 @@ const useStyles = makeStyles(({
     top: 'auto',
     bottom: 0,
     textAlign: 'center', 
+  },
+  bottombar: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    borderRadius: '0px 0px 5px 05px',
   }
 }));
 
@@ -127,11 +133,16 @@ function App() {
             value={progress}
             className={classes.linearProgress}
           />
-        </Box>
-        <Box>
-          <Typography variant="body2" color="text.secondary" sx={{margin: '10px'}}>{`${Math.round(
-            progress
-          )}%`}</Typography>
+          <Box className={classes.bottombar}>
+            <Box sx={{ bottom: 'auto', top: 0, textAlign: 'left', margin: '10px'}}>
+              <Typography variant="body2" color="text.secondary">{`${Math.round(
+                progress
+              )}%`}</Typography>
+            </Box>
+            <Box sx={{ bottom: 'auto', top: 0, textAlign: 'right', margin: '10px' }}>
+              <Button variant="contained">Webpage</Button>
+            </Box>
+          </Box>
         </Box>
     </Paper>
   );
