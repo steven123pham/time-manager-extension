@@ -12,6 +12,7 @@ import {
   Toolbar,
   Button } from '@mui/material' 
 import { makeStyles } from '@mui/styles';
+import CssBaseline from "@mui/material/CssBaseline";
 
 interface Row {
   type: string;
@@ -26,7 +27,7 @@ function createData(type: string, description: string, date: string): Row {
 
 const useStyles = makeStyles(({
   root: {
-    width: '500px',
+    minWidth: '500px',
   },
   table: {
     display: 'flex',
@@ -43,7 +44,7 @@ const useStyles = makeStyles(({
     display: 'flex',
     justifyContent: 'center',
     backgroundColor: 'lightblue',
-    borderRadius: '5px 5px 0px 0px',
+    borderRadius: '0px 0px 5px 5px',
   },
   title: {
     top: 'auto',
@@ -102,7 +103,9 @@ function App() {
   };
   
   return (
-    <Paper className={classes.root}>
+    <Paper >
+      <CssBaseline/>
+      <Paper className={classes.root}>
       <Toolbar variant='dense' className={classes.toolbar}>
         <Typography variant="h6" className={classes.title} sx={{ fontFamily: 'Monospace' }}> BE DESCIPLINED </Typography>
       </Toolbar>
@@ -144,6 +147,7 @@ function App() {
             </Box>
           </Box>
         </Box>
+      </Paper>
     </Paper>
   );
 }
